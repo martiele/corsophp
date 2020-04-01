@@ -1,6 +1,6 @@
 <?php
 
-$mionome = $_GET["nomepersona"];
+$mionome = $_GET["name"];
 /*
 $messaggio = $_GET["messaggio"];
 $sesso = $_GET["sesso"];
