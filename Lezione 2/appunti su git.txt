@@ -1,0 +1,15 @@
+
+
+FETCH - Controlla il Server (nessuna azione) per verificare la sincronia progetto
+
+
+PULL - Scarica da server (prendi) verso il PC locale
+
+
+COMMIT - Salvare la situazione attuale del progetto e quindi (chiudere la fase di progetto attuale) e salvarla localmente.
+
+
+PUSH - Invia a server le modifiche dal PC locale
+
+
+
