@@ -6,6 +6,7 @@
 <body>
 
 <h3>Esempio di form</h3>
+<p>by Rocco</p>
 
 <form accept-charset="UTF-8" action="action_page.php" autocomplete="off" method="GET">
 	<fieldset>
