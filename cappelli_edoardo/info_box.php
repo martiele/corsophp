@@ -1,3 +1,22 @@
+
+<?php
+if(isset($g_GET["nome_utente"])){
+	$nome=$_GET["nome_utente"];
+	$sesso=$_GET["sesso"];
+	$messaggio=$_GET["messaggio"];
+	$destinatario=$_GET["destinatario"];
+		
+	echo "Nome: " . $nome;
+	echo "<br />";
+	echo $sesso;
+	echo "<br />";
+	echo $messaggio;
+	echo "<br />";
+	echo $destinatario;
+
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

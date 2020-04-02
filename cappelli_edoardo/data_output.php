@@ -4,11 +4,6 @@ $prendi_nome = $_GET["nome_utente"];
 $prendi_sesso = $_GET["sesso"];
 $prendi_messaggio = $_GET["messaggio"];
 $prendi_destinatario = $_GET["destinatario"];
-/*
-$messaggio = $_GET["messaggio"];
-$sesso = $_GET["sesso"];
-$interessi = $_GET["interessi"];
-*/
 
 ?>
 
