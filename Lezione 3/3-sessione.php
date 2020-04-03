@@ -29,6 +29,7 @@ if( isset($_POST["name"]) ){
 		$_SESSION["login"]["accesso"] = true;
 		$_SESSION["login"]["user"] = $nome;
 
+		//Salvo la sessione prima di un redirect
 		session_write_close();
 
 		//Redirect
