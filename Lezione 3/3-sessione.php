@@ -11,14 +11,14 @@
 	<fieldset>
 	<legend>Login:</legend>
 	<br />
-	<label for="name">Username: </label> 
+	<label for="name">Username: </label>
+	<input name="name" type="text" value="" /> <br />
+	<br />
+	<label for="name">Password: </label>
 	<input name="name" type="text" value="" /> <br /> 
 	<br />
-	<label for="name">Password: </label> 
-	<input name="name" type="text" value="" /> <br /> 
+	<label for="interessi">Ricordami:</label> <input name="ricordami" type="checkbox" value="1" /> <br />
 	<br />
-	<label for="interessi">Ricordami:</label> <input name="ricordami" type="checkbox" value="1" /> <br /> 
-	<br /> 	
 	<button type="submit" value="Submit">Accedi</button>
 	</fieldset>
 </form>
