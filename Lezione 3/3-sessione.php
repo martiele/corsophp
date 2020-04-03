@@ -1,4 +1,4 @@
-<?php sdadsa
+<?php
 if( isset($_POST["name"]) ){
 
 	//echo "CODICEEEEE";
