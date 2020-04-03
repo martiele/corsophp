@@ -1,4 +1,10 @@
 <?php
+//Inizializzo la sessione...
+if (!isset($_SESSION)) {
+  session_start();
+}
+
+
 if( isset($_POST["name"]) ){
 
 	//echo "CODICEEEEE";
@@ -19,8 +25,18 @@ if( isset($_POST["name"]) ){
 	*/
 	if ( ($correct_name == $nome) && ($correct_pswd == md5($pswd)) ) { 
 		echo "Benvenuto $nome"; 
+
+		$_SESSION["login"]["accesso"] = true;
+		$_SESSION["login"]["user"] = $nome;
+
+
 	} else { 
 		echo "Accesso non corretto"; 
+
+		$_SESSION["login"]["accesso"] = false;
+		$_SESSION["login"]["user"] = "";
+
+
 	} 
 
 
@@ -34,6 +50,9 @@ if( isset($_POST["name"]) ){
 	<title>Esempio di form</title>
 </head>
 <body>
+
+
+<?php include("menu.php"); ?>
 
 <h3>Esempio di form</h3>
 
@@ -55,6 +74,14 @@ if( isset($_POST["name"]) ){
 	</fieldset>
 </form>
 
+
+<?php
+
+	if($_SESSION["login"]["accesso"] == true){
+		echo "Ciao ".$_SESSION["login"]["user"];
+
+	}
+?>
 
 </body>
 </html>
