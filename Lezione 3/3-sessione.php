@@ -24,10 +24,17 @@ if( isset($_POST["name"]) ){
 	ALTRIMENTI DICI NONE...
 	*/
 	if ( ($correct_name == $nome) && ($correct_pswd == md5($pswd)) ) { 
-		echo "Benvenuto $nome"; 
+		//echo "Benvenuto $nome"; 
 
 		$_SESSION["login"]["accesso"] = true;
 		$_SESSION["login"]["user"] = $nome;
+
+		session_write_close();
+
+		//Redirect
+		header("location:home.php");
+		exit();
+		//oppure die();
 
 
 	} else { 
