@@ -56,12 +56,12 @@ else
 
 
 }
-
+  
 ?><!DOCTYPE html>
 <html>
 <head>
 	<title>Esempio di form</title>
-	<!-- link rel="stylesheet" type="text/css" href="mystyle.css" -->
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body>
 
