@@ -49,6 +49,5 @@ function setSelectedValue(id, hfdId){
 	</fieldset>
 </form>
 
-
 </body>
 </html>
