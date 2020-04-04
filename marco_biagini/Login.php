@@ -22,7 +22,7 @@ if(isset($_POST["name"]) && isset($_POST["pswd"])){
 	}
 
 }else{
-	$login_success = false;
+    $login_success = false;
 }
 
 if($login_success){
@@ -35,7 +35,9 @@ if($login_success){
     exit();
 
 }else{
-	$login_message = "Utente non riconosciuto, il campo utente o la password non sono corretti.";
+	if(isset($_POST["name"]) && isset($_POST["pswd"])){
+	    $login_message = "Utente non riconosciuto, il campo utente o la password non sono corretti.";
+    }
 }
 
 ?>
@@ -54,27 +56,30 @@ if($login_success){
 
 </head>
 
-<body>
+<body class="">
     <?php include("Menu.php"); ?>
 
-    <div class="main-content">
-        <form accept-charset="UTF-8" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
-            <fieldset>
-                <legend>Login:</legend>
+    <div class="log-container">
+        <div class="log-left"></div>
+        <div class="log-right">
+
+            <form accept-charset="UTF-8" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                <h1>Login</h1>
                 <br />
-                <label for="name">Username: </label>
-                <input name="name" type="text" value="" /> <br />
+                <label for="name"><strong>Username </strong></label> <br />
+                <input name="name" type="text" value="" required /> <br />
                 <br />
-                <label for="pswd">Password: </label>
-                <input name="pswd" type="password" value="" /> <br />
+                <label for="pswd"><strong>Password </strong></label> <br />
+                <input name="pswd" type="password" value="" required /> <br />
                 <br />
-                <label for="ricordami">Ricordami:</label>
-                <input name="ricordami" type="checkbox" value="1" /> <br />
+                <a for="ricordami" onclick="$('#cbx_remember').attr('checked', !$('#cbx_remember').attr('checked'))"
+                    style="cursor: pointer;"><strong>Ricordami </strong></a>
+                <input id="cbx_remember" name="ricordami" type="checkbox" value="1" checked /> <br />
                 <br />
-                <button class="btn-primary" type="submit" value="Submit">Accedi</button>
-            </fieldset>
-            <label style="color: red; margin-top: 1em;"><?php echo $login_message ?></label>
-        </form>
+                <button class="btn-primary" type="submit" value="Submit"><strong>Accedi</strong></button>
+                <label style="color: red; margin-top: 1em;"><?php echo $login_message ?></label>
+            </form>
+        </div>
     </div>
 
     <script type="text/javascript">

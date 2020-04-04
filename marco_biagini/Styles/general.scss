@@ -13,6 +13,11 @@ body{
             color: $light;
         }
 
+        input{
+            background-color: $dark;
+            color: $light;
+        }
+
         & nav{
             &.nav-top{
                 & .user-options{
@@ -34,6 +39,17 @@ a{
     &.disabled {
         pointer-events: none;
         cursor: default;
+    }
+}
+
+input{
+    border: solid 1px $secondary;
+    border-radius: $d_radius;
+    padding: .3em .5em;
+    background-color: $light;
+    color: $dark;
+    &:focus{
+        @include shadow(0, 0);
     }
 }
 

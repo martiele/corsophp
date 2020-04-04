@@ -13,8 +13,13 @@ body.dark-mode a {
   color: #cfd1d8;
 }
 
+body.dark-mode input {
+  background-color: #1b1b1e;
+  color: #cfd1d8;
+}
+
 body.dark-mode nav.nav-top .user-options {
-  background-color: #b4b4b4;
+  background-color: #7e7d88;
 }
 
 body.dark-mode nav.nav-top .user-options ul li:hover, body.dark-mode nav.nav-top .user-options ol li:hover {
@@ -29,6 +34,22 @@ a {
 a.disabled {
   pointer-events: none;
   cursor: default;
+}
+
+input {
+  border: solid 1px #7e7d88;
+  border-radius: 5px;
+  padding: .3em .5em;
+  background-color: #cfd1d8;
+  color: #1b1b1e;
+}
+
+input:focus {
+  -webkit-box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  zoom: 1;
 }
 
 input, button:focus {
