@@ -1,0 +1,88 @@
+@import "resources.scss";
+
+$nav_height: 48px;
+$user_margin: 10px;
+
+nav{
+    display:flex;
+    flex-direction: row;
+
+    &.nav-top{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $dark;
+        font-size: 1.4rem;
+        @include shadow(0, 5px);
+
+        & .nav-logo{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        & .nav-item{
+            display: block;
+            cursor: pointer;
+            padding: 0 1rem;
+            line-height: $nav_height;
+            text-align: center;
+            color: $light;
+            @include transition(.2s);
+
+            &.active{
+                background-color: $primary;
+            }
+
+            &:hover{
+                background-color: $secondary;
+                color: $dark;
+            }
+        }
+
+        & .nav-user{
+            position: absolute;
+            right: 0;
+            top:0;
+            cursor: pointer;
+            float: right;
+            text-align: center;
+            margin: $user_margin/2;
+            padding: 0;
+            width: $nav_height - $user_margin;
+            height: $nav_height - $user_margin;
+            border-radius: 50%;
+            color: $dark;
+            background-color: $light;
+        }
+
+        & .user-options{
+            position: absolute;
+            top: $nav_height + $user_margin;
+            right: $user_margin;
+            background-color: $light;
+            @include shadow(0, 0);
+            @include transition(.3s);
+            padding: .5rem;
+            opacity: 1;
+            overflow: hidden;
+            min-width: 100px;
+
+            &.hide{
+                opacity: 0;
+            }
+
+            & ul,ol{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                & li{
+                    @extend .nav-item;
+                    color: $dark;
+                    border-radius: $d_radius;
+                }
+            }
+        }
+    }
+}

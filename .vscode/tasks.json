@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "general style Compile",
+      "type": "shell",
+      "command": "node-sass marco_biagini\\Styles\\general.scss marco_biagini\\Styles\\general.css",
+      "group": "build"
+    },
+    {
+      "label": "navbar style Compile",
+      "type": "shell",
+      "command": "node-sass marco_biagini\\Styles\\navbar.scss marco_biagini\\Styles\\navbar.css",
+      "group": "build"
+    }
+  ]
+}
