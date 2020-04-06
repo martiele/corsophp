@@ -2,6 +2,10 @@
   if (!isset($_SESSION)) {
     session_start();
   }
+  if (!isset($_SESSION["login"])) {
+    header("location:3-sessione.php");
+    exit();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="it" dir="ltr">
