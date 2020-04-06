@@ -1,0 +1,22 @@
+
+MIO SITO
+http://corsophp2020.altervista.org
+
+
+DATI ALTERVISTA
+Username: corsophp2020
+Password: zPy9daNXAPeq
+
+
+DATI ACCESSO FTP
+Server: ftp.corsophp2020.altervista.org
+Username: corsophp2020
+Password: zPy9daNXAPeq
+Tipo di connessione: PASV (modalità passiva)
+
+
+DATABASE
+Hostname/server: localhost
+Username: corsophp2020
+Password: Facoltativa (puoi lasciare il campo vuoto)
+Database: my_corsophp2020
