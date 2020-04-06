@@ -12,17 +12,20 @@ $log_height: 350px;
     height: $log_height;
     margin-top: -$log_height / 2;
 
+    &:hover .log-left{
+        background-size: 100%;
+    }
+
     & .log-left{
         display: block;
         flex-grow: 1;
-        background-image: linear-gradient(to right, transparent 70%, $secondary);
+        background-image: linear-gradient(to right, transparent 50%, $secondary);
+        background-size: 50%;
+        background-position: 100% 0%;
+        background-repeat: no-repeat;
         width: 50%;
         border-radius: $d_radius;
-        @include transition(.5s);
-
-        &:hover{
-            background-image: linear-gradient(to right, transparent 50%, $secondary);
-        }
+        @include transition(.5s, background-size);
     }
 
     & .log-right{

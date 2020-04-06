@@ -1,3 +1,7 @@
+$(document).on("click", "#btn_user", function(){
+    toggleItem('#options');
+});
+
 function toggleItem(item){
     $(item).toggleClass("hide");
 }

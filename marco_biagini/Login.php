@@ -38,6 +38,7 @@ if($login_success){
 	if(isset($_POST["name"]) && isset($_POST["pswd"])){
 	    $login_message = "Utente non riconosciuto, il campo utente o la password non sono corretti.";
     }
+    save_login($login);
 }
 
 ?>
@@ -85,8 +86,8 @@ if($login_success){
     <script type="text/javascript">
     $(document).ready(function() {
         setActive("#menu", 0);
-        $("#btn_contacts").hide();
-        $("#btn_user").hide();
+        // $("#btn_contacts").hide();
+        // $("#btn_user").hide();
     });
     </script>
 </body>
