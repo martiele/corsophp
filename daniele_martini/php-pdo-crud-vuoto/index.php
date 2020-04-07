@@ -1,10 +1,6 @@
 <?php
 	//Codice per creare una lista di record
 
-	require_once("db.php");
-
-
-
 ?><html>
 <head>
 <title>PHP PDO CRUD - Esempio</title>
@@ -31,42 +27,12 @@ body{width:100%;font-family:arial;letter-spacing:1px;line-height:20px;}
   </thead>
   <tbody id="table-body">
 
-<?php
-//prima devo aver aperto la connessione al db
-$sql = "SELECT * FROM posts ORDER BY post_at DESC, id DESC";
-$result = $conn->prepare($sql);
-$result->execute();
-
-if ($result->rowCount() > 0) {
-    // se voglio “ciclare” tutti i risultati posso farlo così:
-    while($row = $result->fetch(PDO::FETCH_ASSOC) ) {
-?>
-
-	<tr class="table-row">
-		<td><?=$row["post_title"]?></td>
-		<td><?=nl2br($row["description"])?></td>
-		<td><?=$row["post_at"]?></td>
-		<td>
-			<a class="ajax-action-links" href='edit.php?id=<?=$row["id"]?>' title="Modifica"><img src="crud-icon/edit.png" alt="Modifica" /></a>
-			<a class="ajax-action-links" href='delete.php?id=<?=$row["id"]?>' title="Elimina"><img src="crud-icon/delete.png" alt="Elimina" /></a>
-		</td>
-	</tr>
-
-<?php
-        //echo "id: " . $row["id"]. " - Nome: " . $row["nome"]. " " . $row["cognome"]. "<br>";
-    }
-} else {
-//chiudo PHP
-?>
-		<tr>
-	  		<td colspan="4"> nessun record </td>
-  	  	</tr>
-<?php
-//riapro PHP
-}
-$conn = null; //chiudo la connessione
-?>
-
+	  <tr class="table-row">
+		<td>aaa</td>
+		<td>bbb</td>
+		<td>ccc</td>
+		<td><a class="ajax-action-links" href='edit.php?id=' title="Modifica"><img src="crud-icon/edit.png" alt="Modifica" /></a> <a class="ajax-action-links" href='delete.php?id=' title="Elimina"><img src="crud-icon/delete.png" alt="Elimina" /></a></td>
+	  </tr>
 
   </tbody>
 </table>
