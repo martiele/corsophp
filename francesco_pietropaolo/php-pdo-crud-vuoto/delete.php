@@ -8,7 +8,8 @@ if( isset($_GET) && isset($_GET["id"]) && ($_GET["id"]>0)  ){
 
 $id_to_delete = $_GET["id"];
 //$query = "DELETE FROM `posts` WHERE `posts`.`id` = " . $id_to_delete;
-$query = "DELETE FROM `posts` WHERE `posts`.`id` = $id_to_delete";
+//$query = "DELETE FROM `posts` WHERE `posts`.`id` = $id_to_delete"; //TABELLA POSTS
+$query = "DELETE FROM `utenti` WHERE `utenti`.`id` = $id_to_delete"; //TABELLA UTENTI
 
 $result = $conn->prepare($query);
 $result->execute();

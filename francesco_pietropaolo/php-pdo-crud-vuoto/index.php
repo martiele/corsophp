@@ -28,8 +28,9 @@ body{width:100%;font-family:arial;letter-spacing:1px;line-height:20px;}
 	</tr>
   </thead>
   <tbody id="table-body">
-  <?php
-  //prima devo aver aperto la connessione al db
+
+<?php/*
+  //prima devo aver aperto la connessione al db                                        TABELLA POSTS
   $sql = "SELECT * FROM posts ORDER BY post_at DESC, id DESC";
   $result = $conn->prepare($sql);
   $result->execute();
@@ -61,9 +62,43 @@ body{width:100%;font-family:arial;letter-spacing:1px;line-height:20px;}
   <?php
   //riapro PHP
   }
-  $conn = null; //chiudo la connessione
+  $conn = null; //chiudo la connessione */
+  ?>
+  <?php
+  //                                                                             TEST UTENTI -------------TABELLA UTENTI
+  $sql = "SELECT * FROM utenti ORDER BY id DESC";
+  $result = $conn->prepare($sql);
+  $result->execute();
+
+  if ($result->rowCount() > 0) {
+      // se voglio “ciclare” tutti i risultati posso farlo così:
+      while($row = $result->fetch(PDO::FETCH_ASSOC) ) {
   ?>
 
+  	<tr class="table-row">
+  		<td><?=$row["username"]?></td>    //PROBABILE ERRORE
+  		<td><?=nl2br($row["pswd"])?></td> //NON MOSTRA DATI
+  		<td><?=$row["created"]?></td>     //NELLA TABELLA
+  		<td>
+  			<a class="ajax-action-links" href='edit.php?id=<?=$row["id"]?>' title="Modifica"><img src="crud-icon/edit.png" alt="Modifica" /></a>
+  			<a class="ajax-action-links" href='delete.php?id=<?=$row["id"]?>' title="Elimina"><img src="crud-icon/delete.png" alt="Elimina" /></a>
+  		</td>
+  	</tr>
+
+  <?php
+          //echo "id: " . $row["id"]. " - Nome: " . $row["nome"]. " " . $row["cognome"]. "<br>";
+      }
+  } else {
+  //chiudo PHP
+  ?>
+  		<tr>
+  	  		<td colspan="4"> nessun record </td>
+    	  	</tr>
+  <?php
+  //riapro PHP
+  }
+  $conn = null; //chiudo la connessione
+  ?>
 
   </tbody>
 </table>
