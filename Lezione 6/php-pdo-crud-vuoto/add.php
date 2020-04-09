@@ -19,17 +19,12 @@
     $stmt->execute([$post_title, $description, $post_at]);
 
 
-
     //3) Effettuare il redirect alla pagina index.php
     header("location:index.php");
-    exit();
-    
-
+    exit();   
 
   }
     
-
-
 ?><html>
 <head>
 <title>PHP PDO CRUD - Aggiungi Record</title>
