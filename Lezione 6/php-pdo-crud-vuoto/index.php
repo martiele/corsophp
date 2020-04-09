@@ -20,13 +20,31 @@ body{width:100%;font-family:arial;letter-spacing:1px;line-height:20px;}
 
 <div class="content" style="margin:50px auto; width:800px; ">
 <div style="text-align:right;margin:20px 0px;"><a href="add.php" class="button_link"><img src="crud-icon/add.png" title="Add New Record" style="vertical-align:bottom;" /> Crea nuovo</a></div>
+
+<?php
+$sql = "SELECT * FROM posts";
+$select = $conn->query($sql);
+$total_column = $select->columnCount();
+
+for ($counter = 0; $counter < $total_column; $counter ++) {
+    $meta = $select->getColumnMeta($counter);
+    $column[] = $meta['name'];
+}
+//print_r($column);
+?>
+
 <table class="tbl-qa">
   <thead>
 	<tr>
-	  <th class="table-header" width="20%">Titolo</th>
-	  <th class="table-header" width="40%">Descrizione</th>
-	  <th class="table-header" width="20%">Data</th>
-	  <th class="table-header" width="5%">Azioni</th>
+		<?php foreach ($column as $key => $value) {
+			if($value!="id"){
+			?>
+			  <th class="table-header" width="20%"><?=$value?></th>
+			<?php
+			}
+		}
+		?>
+		<th class="table-header" width="20%">Azioni</th>
 	</tr>
   </thead>
   <tbody id="table-body">
