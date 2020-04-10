@@ -50,9 +50,16 @@ for ($counter = 0; $counter < $total_column; $counter ++) {
   <tbody id="table-body">
 
 <?php
+$limit = 5;
+$offset = 0;
+
 //prima devo aver aperto la connessione al db
-$sql = "SELECT * FROM posts ORDER BY post_at DESC, id DESC";
+$sql = "SELECT * FROM posts ORDER BY post_at DESC, id DESC LIMIT :offset,:limit";
 $result = $conn->prepare($sql);
+
+$result->bindParam('limit', $limit, PDO::PARAM_INT);
+$result->bindParam('offset', $offset, PDO::PARAM_INT);
+
 $result->execute();
 
 
@@ -89,6 +96,10 @@ $conn = null; //chiudo la connessione
 
   </tbody>
 </table>
+
+<div style="text-align:right;margin:20px 0px;"><a href="export.php" class="button_link"><img src="crud-icon/add.png" title="Esporta CSV" style="vertical-align:bottom;" /> Esporta CSV</a></div>
+
+
 </div>
 </body>
 </html>
