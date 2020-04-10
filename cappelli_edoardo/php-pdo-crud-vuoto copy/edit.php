@@ -1,7 +1,40 @@
 <?php
-  //Codice modifica record (e redirect a index.php)
 
-?><html>
+//require_once("db.php");
+  //Codice inserimento record (e redirect a index.php)
+  if( 
+      isset($_POST) &&
+      isset($_POST["form_add_check"]) && 
+      ($_POST["form_add_check"]=="1") 
+    ){
+
+
+    //1) Recuperare le variabili dal form
+    $post_title = $_POST["post_title"];
+    $description = $_POST["description"];
+    $post_at = $_POST["post_at"];
+
+    //2) Effettuare una query di INSERT
+    require_once("db.php");
+    $sql = "INSERT INTO `posts` (`id`, `post_title`, `description`, `post_at`) VALUES (NULL, ?, ?, ?);";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute([$post_title, $description, $post_at]);
+
+
+    //3) Effettuare il redirect alla pagina index.php
+    header("location:index.php");
+    exit();   
+
+  }
+
+//Recupero id da modificare
+if(isset($_GET) &&isset($_GET["id"])){
+  $id_post= $_GET ["id"];
+  echo "l'ho letto";
+}
+
+
+?>
 <head>
 <title>PHP PDO CRUD - Modifica Record</title>
 <style>
