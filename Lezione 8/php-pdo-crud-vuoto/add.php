@@ -6,7 +6,6 @@
       ($_POST["form_add_check"]=="1") 
     ){
 
-
     //1) Recuperare le variabili dal form
     $post_title = $_POST["post_title"];
     $description = $_POST["description"];
