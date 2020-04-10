@@ -13,10 +13,17 @@
     $post_title = $_POST["post_title"];
     $description = $_POST["description"];
     $post_at = $_POST["post_at"];
+    $id_to_edit =$_POST["id"];
 
     //2) Effettuare una query di INSERT
     require_once("db.php");
-    $sql = "INSERT INTO `posts` (`id`, `post_title`, `description`, `post_at`) VALUES (NULL, ?, ?, ?);";
+    $sql = "UPDATE `posts` SET
+              `posts_title` =?,
+              `description` =?,
+              `post_at` =?,
+              WHERE
+              `posts.``id` =?,
+              ;";
     $stmt= $conn->prepare($sql);
     $stmt->execute([$post_title, $description, $post_at]);
 
@@ -43,7 +50,7 @@ if ($result->rowCount() > 0) {
     $row = $result->fetch(PDO::FETCH_ASSOC);
 }else{
   header("location:index.php");
-exit()
+exit();
 }
 
 
@@ -66,6 +73,10 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 <div class="frm-add">
 <h1 class="demo-form-heading">Modifica Record</h1>
 <form name="frmAdd" action="" method="POST">
+
+  <input tipe="hidden" name="form_edit_check" value="1"/>
+  <input tipe="hidden" name="id" value="<?=$row["id"]?>"/>
+  
   <div class="demo-form-row">
 	  <label>Title: </label><br>
 	  <input type="text" name="post_title" class="demo-form-field" value="<?=row["post_title"]?>" required  />
