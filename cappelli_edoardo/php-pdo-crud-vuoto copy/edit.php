@@ -50,7 +50,7 @@ if ($result->rowCount() > 0) {
     $row = $result->fetch(PDO::FETCH_ASSOC);
 }else{
   header("location:index.php");
-exit()
+exit();
 }
 
 
@@ -75,7 +75,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 <form name="frmAdd" action="" method="POST">
 
   <input tipe="hidden" name="form_edit_check" value="1"/>
-  <input tipe="hidden" name="id" value="1"/>
+  <input tipe="hidden" name="id" value="<?=$row["id"]?>"/>
   
   <div class="demo-form-row">
 	  <label>Title: </label><br>
