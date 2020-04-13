@@ -1,6 +1,6 @@
 @import "resources.scss";
 
-$log_height: 350px;
+$log_height: 450px;
 
 .log-container {
     position: absolute;
@@ -9,7 +9,6 @@ $log_height: 350px;
     top: 50%;
     left: 0;
     width: 100%;
-    height: $log_height;
     margin-top: -$log_height / 2;
 
     &:hover .log-left{

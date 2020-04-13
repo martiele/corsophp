@@ -4,8 +4,8 @@ $nav_height: 48px;
 $user_margin: 10px;
 
 nav{
-    display:flex;
-    flex-direction: row;
+    display:flex !important;
+    flex-direction: row !important;
 
     &.nav-top{
         width: 100%;
@@ -22,21 +22,21 @@ nav{
         }
 
         & .nav-item{
-            display: block;
-            cursor: pointer;
-            padding: 0 1rem;
-            line-height: $nav_height;
-            text-align: center;
-            color: $light;
+            display: block !important;
+            cursor: pointer !important;
+            padding: 0 1rem !important;
+            line-height: $nav_height !important;
+            text-align: center !important;
+            color: $light !important;
             @include transition(.2s);
 
             &.active{
-                background-color: $primary;
+                background-color: $primary !important;
             }
 
             &:hover{
-                background-color: $secondary;
-                color: $dark;
+                background-color: $secondary !important;
+                color: $dark !important;
             }
         }
 

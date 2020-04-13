@@ -1,11 +1,11 @@
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
 }
 
 nav.nav-top {
@@ -28,23 +28,23 @@ nav.nav-top .nav-logo {
 }
 
 nav.nav-top .nav-item, nav.nav-top .user-options ul li, nav.nav-top .user-options ol li {
-  display: block;
-  cursor: pointer;
-  padding: 0 1rem;
-  line-height: 48px;
-  text-align: center;
-  color: #cfd1d8;
+  display: block !important;
+  cursor: pointer !important;
+  padding: 0 1rem !important;
+  line-height: 48px !important;
+  text-align: center !important;
+  color: #cfd1d8 !important;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
 nav.nav-top .nav-item.active, nav.nav-top .user-options ul li.active, nav.nav-top .user-options ol li.active {
-  background-color: #3f48cc;
+  background-color: #3f48cc !important;
 }
 
 nav.nav-top .nav-item:hover, nav.nav-top .user-options ul li:hover, nav.nav-top .user-options ol li:hover {
-  background-color: #7e7d88;
-  color: #1b1b1e;
+  background-color: #7e7d88 !important;
+  color: #1b1b1e !important;
 }
 
 nav.nav-top .nav-user {
