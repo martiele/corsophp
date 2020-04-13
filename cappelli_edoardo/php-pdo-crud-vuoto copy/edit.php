@@ -1,4 +1,6 @@
 <?php
+
+//require_once("db.php");
   //Codice inserimento record (e redirect a index.php)
   if( 
       isset($_POST) &&
@@ -6,14 +8,22 @@
       ($_POST["form_add_check"]=="1") 
     ){
 
+
     //1) Recuperare le variabili dal form
     $post_title = $_POST["post_title"];
     $description = $_POST["description"];
     $post_at = $_POST["post_at"];
+    $id_to_edit =$_POST["id"];
 
     //2) Effettuare una query di INSERT
     require_once("db.php");
-    $sql = "INSERT INTO `posts` (`id`, `post_title`, `description`, `post_at`) VALUES (NULL, ?, ?, ?);";
+    $sql = "UPDATE `posts` SET
+              `posts_title` =?,
+              `description` =?,
+              `post_at` =?,
+              WHERE
+              `posts.``id` =?,
+              ;";
     $stmt= $conn->prepare($sql);
     $stmt->execute([$post_title, $description, $post_at]);
 
@@ -23,10 +33,30 @@
     exit();   
 
   }
-    
-?><html>
+
+//Recupero id da modificare
+if(isset($_GET) &&isset($_GET["id"])&& $_GET["id"]>0){
+  $id_post= $_GET ["id"];
+  $id_post = (int)$_GET["id"];
+  echo "l'ho letto";
+
+$sql ="SELECT * FROM post WHERE id=?";
+$result = $conn->prepare($sql);
+$result->execute($id_post);
+
+
+if ($result->rowCount() > 0) {
+    // se voglio “ciclare” tutti i risultati posso farlo così:
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+}else{
+  header("location:index.php");
+exit();
+}
+
+
+?>
 <head>
-<title>PHP PDO CRUD - Aggiungi Record</title>
+<title>PHP PDO CRUD - Modifica Record</title>
 <style>
 body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 .button_link {color:#FFF;text-decoration:none; background-color:#428a8e;padding:10px;}
@@ -41,27 +71,28 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 <body>
 <div style="margin:20px 0px;text-align:right;"><a href="index.php" class="button_link">Torna alla lista</a></div>
 <div class="frm-add">
-<h1 class="demo-form-heading">Aggiungi nuovo Record</h1>
-<form name="frmAdd" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+<h1 class="demo-form-heading">Modifica Record</h1>
+<form name="frmAdd" action="" method="POST">
 
-  <input type="hidden" name="form_add_check" value="1" />
-
+  <input tipe="hidden" name="form_edit_check" value="1"/>
+  <input tipe="hidden" name="id" value="<?=$row["id"]?>"/>
+  
   <div class="demo-form-row">
 	  <label>Title: </label><br>
-	  <input type="text" name="post_title" class="demo-form-field" required />
+	  <input type="text" name="post_title" class="demo-form-field" value="<?=row["post_title"]?>" required  />
   </div>
   <div class="demo-form-row">
 	  <label>Description: </label><br>
-	  <textarea name="description" class="demo-form-field" rows="5" required ></textarea>
+	  <textarea name="description" class="demo-form-field" rows="5" required ><?=row["description"]?></textarea>
   </div>
   <div class="demo-form-row">
 	  <label>Date: </label><br>
-	  <input type="date" name="post_at" class="demo-form-field" required />
+	  <input type="date" name="post_at" class="demo-form-field" value="<?=row["post_at"]?>" required />
   </div>
   <div class="demo-form-row">
-	  <input name="add_record" type="submit" value="Aggiungi" class="demo-form-submit">
+	  <input name="save_record" type="submit" value="<?=row["save_record"]?>" class="demo-form-submit">
   </div>
   </form>
-</div> 
+</div>
 </body>
 </html>
