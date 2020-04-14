@@ -1,0 +1,73 @@
+@import "resources.scss";
+
+$toast_width: 400px;
+$area_padd : 30px;
+$toast_border: 5px;
+
+#toast_area {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: $toast_width + $area_padd;
+    overflow: hidden;
+    padding: $area_padd 0 0 $area_padd;
+
+    & .toast {
+        position: relative;
+        border-left: solid $toast_border $primary;
+        border-radius: $d_radius 0 0 $d_radius;
+        width: $toast_width;
+        display: block;
+        flex-grow: 1;
+        padding: 1em;
+        margin-bottom: .5em;
+        overflow: hidden;
+        float: right;
+        @include shadow(0, 0);
+        @include transition(.5s);
+
+        &.hide{
+            margin-left: $toast_width;
+        }
+
+        & p{
+            margin: 0;
+        }
+
+        & .title{
+            width: 100%;
+            font-size: large;
+            font-weight: bold;
+            margin-bottom: .5em;
+        }
+
+        & .btn-close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: .1em .5em;
+            font-size: 24px;
+            cursor: pointer;
+            &:hover{
+                color: black;
+            }
+        }
+
+        &-success{
+            @extend .toast;
+            border-left: solid $toast_border $success;
+        }
+
+        &-warning{
+            @extend .toast;
+            border-left: solid $toast_border $warning;
+        }
+
+        &-danger{
+            @extend .toast;
+            border-left: solid $toast_border $danger;
+        }
+    }
+}

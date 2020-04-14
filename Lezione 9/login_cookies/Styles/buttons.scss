@@ -1,0 +1,41 @@
+@import "resources.scss";
+
+.btn{
+
+    @include button();
+    @include transition(.3s);
+    &:hover{
+        background-color: $secondary;
+        color: $dark;
+    }
+    
+    &-primary{
+        @extend .btn;
+        background-color: $primary;
+        color: $light;
+    }
+    
+    &-info{
+        @extend .btn;
+        background-color: $info;
+        color: $light;
+    }
+
+    &-success{
+        @extend .btn;
+        background-color: $success;
+        color: $light;
+    }
+
+    &-warning{
+        @extend .btn;
+        background-color: $warning;
+        color: $dark;
+    }
+
+    &-danger{
+        @extend .btn;
+        background-color: $danger;
+        color: $light;
+    }
+}
