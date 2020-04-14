@@ -9,14 +9,18 @@
 
 	//Apri un file in scrittura
 	$file_aperto = fopen('export_posts.csv', 'w');
+	//
 
 
 	if ($result->rowCount() > 0) {
 	    // se voglio “ciclare” tutti i risultati posso farlo così:
 	    while($row = $result->fetch(PDO::FETCH_ASSOC) ) {
-
+    		/*
+			var_dump($row);
+			die();
+			*/
 	    	fputcsv($file_aperto, $row);
-
+    		//
 		}
 	}
 
