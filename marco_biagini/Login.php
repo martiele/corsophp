@@ -51,9 +51,9 @@ if($login_success){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link type="text/css" rel="stylesheet" href="Styles/Bundle.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="Scripts/JavaScript/Bundle.js"></script>
+
+    <?php include("Styles/Bootstrap4.php"); ?>
+    <?php include("Styles/MyStyle.php"); ?>
 
 </head>
 
@@ -83,11 +83,20 @@ if($login_success){
         </div>
     </div>
 
+    <div id="toast_area">
+        <div class="toast-success">
+            <a class="btn-close" onclick="$(this).parent().toggleClass('hide');">&times;</a>
+            <p class="title">Test Toast</p>
+            <p>Questo è un test di notifica per perfezionare il css di questo elemento.</p>
+        </div>
+        <div class="toast-danger">
+            <a class="btn-close" onclick="$(this).parent().toggleClass('hide');">&times;</a>
+            <p>Questo è un altro test di notifica.</p>
+        </div>
+    </div>
     <script type="text/javascript">
     $(document).ready(function() {
         setActive("#menu", 0);
-        // $("#btn_contacts").hide();
-        // $("#btn_user").hide();
     });
     </script>
 </body>

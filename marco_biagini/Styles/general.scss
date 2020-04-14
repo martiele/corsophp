@@ -1,30 +1,30 @@
 @import "resources.scss";
 
 body{
-    color: $dark;
-    background-color: $light;
+    color: $dark !important;
+    background-color: $light !important;
     font-family: Arial, Helvetica, sans-serif;
 
     &.dark-mode{
-        color: $light;
-        background-color: $dark;
+        color: $light !important;
+        background-color: $dark !important;
 
         & a{
-            color: $light;
+            color: $light !important;
         }
 
         input{
-            background-color: $dark;
-            color: $light;
+            background-color: $dark !important;
+            color: $light !important;
         }
 
         & nav{
             &.nav-top{
                 & .user-options{
-                    background-color: $secondary;
+                    background-color: $secondary !important;
                     & ul,ol{
                         & li:hover{
-                            background-color: $dark;
+                            background-color: $dark !important;
                         }
                     } 
                 }
@@ -34,11 +34,11 @@ body{
 }
 
 a{
-    text-decoration: none;
-    color: $dark;
+    text-decoration: none !important;
+    color: $dark !important;
     &.disabled {
-        pointer-events: none;
-        cursor: default;
+        pointer-events: none !important;
+        cursor: default !important;
     }
 }
 
