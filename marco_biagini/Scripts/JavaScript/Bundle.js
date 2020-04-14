@@ -21,31 +21,3 @@ function setActive(idnav, numchild) {
         }
     }
 }
-
-function popup(message, title, type) {
-    var toastArea = $('#toast_area');
-    var id = toastArea.children().length;
-    if (toastArea) {
-
-        var tipo = "toast";
-        if (type) {
-            tipo += "-" + type;
-        }
-
-        var toast = "<div class=\"" + toast + "\" id=\"popup" + id + "\">" +
-            "<a class=\"btn-close\" onclick=\"closepopup($(this).parent());\">&times;</a>";
-
-        if (title) {
-            toast += "<p class=\"title\">" + title + "</p>";
-        }
-
-        toast += "<p>" + message + "</p></div>";
-
-        toastArea.append(toast);
-    }
-}
-
-
-function closepopup(element) {
-    $(element).addClass('hide');
-}

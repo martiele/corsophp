@@ -70,8 +70,8 @@ if(!$_SESSION["login"]->logged){
     <title>Contacts</title>
     <link type="text/css" rel="stylesheet" href="Styles/Bundle.css" />
 
-    <?php include("Styles/Bootstrap4.php"); ?>
     <?php include("Styles/MyStyle.php"); ?>
+    <?php include("Styles/Bootstrap4.php"); ?>
 
 </head>
 

@@ -2,11 +2,13 @@
 
 $toasts = array();
 
-function alert($message, $title = null, $type = null){
-    global $toasts;
-    var_dump($type);
-    $temp = new toast($message, $title, $type);
-    array_push($toasts, $temp);
+function alert($message, $title = null, $type = null, $autoclose = true){
+    echo "<script type=\"text/javascript\">$(document).ready(function(){popup('$message', '$title', '$type', $autoclose);});</script>";
+
+    // global $toasts;
+    // var_dump($type);
+    // $temp = new toast($message, $title, $type);
+    // array_push($toasts, $temp);
 }
 
 Class toast{
