@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <?php include("Styles/MyStyle.php"); ?>
+    <?php include("Styles/Bootstrap4.php"); ?>
+
+</head>
+
 <?php
 include("Scripts/PHP/SessionManager.php"); 
 
@@ -36,26 +50,12 @@ if($login_success){
 
 }else{
 	if(isset($_POST["name"]) && isset($_POST["pswd"])){
-	    $login_message = "Utente non riconosciuto, il campo utente o la password non sono corretti.";
+        alert("Utente non riconosciuto, il campo utente o la password non sono corretti.", "Accesso Negato", "danger");        
     }
     save_login($login);
 }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-    <?php include("Styles/Bootstrap4.php"); ?>
-    <?php include("Styles/MyStyle.php"); ?>
-
-</head>
 
 <body class="">
     <?php include("Menu.php"); ?>
@@ -78,22 +78,10 @@ if($login_success){
                 <input id="cbx_remember" name="ricordami" type="checkbox" value="1" checked /> <br />
                 <br />
                 <button class="btn-primary" type="submit" value="Submit"><strong>Accedi</strong></button>
-                <label style="color: red; margin-top: 1em;"><?php echo $login_message ?></label>
             </form>
         </div>
     </div>
 
-    <div id="toast_area">
-        <div class="toast-success">
-            <a class="btn-close" onclick="$(this).parent().toggleClass('hide');">&times;</a>
-            <p class="title">Test Toast</p>
-            <p>Questo è un test di notifica per perfezionare il css di questo elemento.</p>
-        </div>
-        <div class="toast-danger">
-            <a class="btn-close" onclick="$(this).parent().toggleClass('hide');">&times;</a>
-            <p>Questo è un altro test di notifica.</p>
-        </div>
-    </div>
     <script type="text/javascript">
     $(document).ready(function() {
         setActive("#menu", 0);
