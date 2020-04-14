@@ -1,4 +1,68 @@
-<!DOCTYPE html>
+<?php
+include("Scripts/PHP/SessionManager.php"); 
+
+$login = new login("", false);
+
+$login_success = true;
+$login_cookies = false;
+$login_message = "";
+$access = "";
+
+$check_access = "Marco" . md5("12345");
+
+
+if(isset($_COOKIE["username"]) && isset($_COOKIE["access"]) ){
+    $user = $_COOKIE["username"];
+    $access = $_COOKIE["access"];
+
+    if( ($user!="") && ($access==$check_access) ){
+        //login corretto
+        $login_cookies = true;
+    }
+
+}
+
+//Controllo che il form sia stato inviato
+if(isset($_POST["name"]) && isset($_POST["pswd"])){    
+    
+    $nome = $_POST["name"];
+    $password = $_POST["pswd"];
+    
+    $access = $nome . md5($password);
+    
+    // echo "$check_access = $access";
+
+    if($check_access != $access){
+        $login_success = false;
+    }
+
+}else{
+    $login_success = false;
+}
+
+if(($login_success)||($login_cookies)){
+
+    $login->set_name($_POST["name"]);
+    $login->set_logged(true);
+
+    if( (isset($_POST["ricordami"])) && 
+        ($_POST["ricordami"]=="1") ){
+        setcookie("username", $nome, time() + 2592000 );
+        setcookie("access", $access, time() + 2592000 );      
+    }
+
+    save_login($login);
+    header('location:Home.php');
+    exit();
+
+}else{
+    if(isset($_POST["name"]) && isset($_POST["pswd"])){
+        $put_alert = true;
+    }
+    save_login($login);
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,53 +75,13 @@
     <?php include("Styles/Bootstrap4.php"); ?>
 
 </head>
-
-<?php
-include("Scripts/PHP/SessionManager.php"); 
-
-$login = new login("", false);
-
-$login_success = true;
-$login_message = "";
-
-if(isset($_POST["name"]) && isset($_POST["pswd"])){
-	$check_access = "Marco" . md5("12345");
-    
-    
-	$nome = $_POST["name"];
-	$password = $_POST["pswd"];
-	
-	$access = $nome . md5($password);
-	
-    // echo "$check_access = $access";
-
-	if($check_access != $access){
-		$login_success = false;
-	}
-
-}else{
-    $login_success = false;
-}
-
-if($login_success){
-
-    $login->set_name($_POST["name"]);
-    $login->set_logged(true);
-
-    save_login($login);
-    header('location:Home.php');
-    exit();
-
-}else{
-	if(isset($_POST["name"]) && isset($_POST["pswd"])){
+<body class="">
+    <?php 
+    if($put_alert){
         alert("Utente non riconosciuto, il campo utente o la password non sono corretti.", "Accesso Negato", "danger");        
     }
-    save_login($login);
-}
+    ?>
 
-?>
-
-<body class="">
     <?php include("Menu.php"); ?>
 
     <div class="log-container">
