@@ -25,11 +25,48 @@ if(!$_SESSION["login"]->logged){
     <?php include("Menu.php"); ?>
 
     <div class="content">
-        <br />
-        <br />
-        <br />
-        <br />
-        <h3>Form di gestione profilo</h3>
+        
+        <h3>Profilo utente</h3>
+
+        <p>
+        <?php
+            //Recuperare nome file (e percorso)
+
+            //Controllare che il file esista
+            if(file_exists($file_immagine) 
+                && (is_file($file_immagine))
+            ){
+                // Se esiste visualizzarlo
+                echo "<img src='$file_immagine' style='max-width:300px;' />";
+            }else{
+                echo "Foto profilo non trovata";
+            }
+
+        ?>
+        </p>
+
+        <p>
+        <?php
+            //Recuperare nome file (e percorso)
+            // $file_descrizione
+
+            //Controllare che il file esista
+            if(file_exists($file_descrizione) 
+                && (is_file($file_descrizione))
+            ){
+                $desc = file_get_contents($file_descrizione);
+
+                //nl2br => converte gli "accapo" in "<br>"
+                echo nl2br($desc);
+            }else{
+                echo "Descrizione non trovata";
+            }
+            //Se esiste leggerlo e visualizzare contenuto
+        ?>
+        </p>
+        <p>
+            <a href="Profilo_edit.php">modifica profilo</a>
+        </p>
 
     </div>
 
