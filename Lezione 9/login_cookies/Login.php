@@ -10,6 +10,10 @@ $access = "";
 
 $check_access = "Marco" . md5("12345");
 
+/*
+var_dump($_COOKIE);
+die();
+*/
 
 if(isset($_COOKIE["username"]) && isset($_COOKIE["access"]) ){
     $user = $_COOKIE["username"];
@@ -47,6 +51,7 @@ if(($login_success)||($login_cookies)){
 
     if( (isset($_POST["ricordami"])) && 
         ($_POST["ricordami"]=="1") ){
+
         setcookie("username", $nome, time() + 2592000 );
         setcookie("access", $access, time() + 2592000 );      
     }
