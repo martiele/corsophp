@@ -1,0 +1,78 @@
+#toast_area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 430px;
+  overflow: hidden;
+  padding: 30px 0 0 30px;
+}
+
+#toast_area .toast, #toast_area .toast-success, #toast_area .toast-warning, #toast_area .toast-danger {
+  position: relative;
+  border-left: solid 5px #3f48cc;
+  border-radius: 5px 0 0 5px;
+  width: 400px;
+  display: block;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 1em;
+  margin-bottom: .5em;
+  overflow: hidden;
+  float: right;
+  -webkit-box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  zoom: 1;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#toast_area .toast.hide, #toast_area .hide.toast-success, #toast_area .hide.toast-warning, #toast_area .hide.toast-danger {
+  margin-left: 400px;
+}
+
+#toast_area .toast p, #toast_area .toast-success p, #toast_area .toast-warning p, #toast_area .toast-danger p {
+  margin: 0;
+}
+
+#toast_area .toast .title, #toast_area .toast-success .title, #toast_area .toast-warning .title, #toast_area .toast-danger .title {
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+#toast_area .toast .btn-close, #toast_area .toast-success .btn-close, #toast_area .toast-warning .btn-close, #toast_area .toast-danger .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .1em .5em;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#toast_area .toast .btn-close:hover, #toast_area .toast-success .btn-close:hover, #toast_area .toast-warning .btn-close:hover, #toast_area .toast-danger .btn-close:hover {
+  color: black;
+}
+
+#toast_area .toast-success {
+  border-left: solid 5px #2bbd15;
+}
+
+#toast_area .toast-warning {
+  border-left: solid 5px #cfc619;
+}
+
+#toast_area .toast-danger {
+  border-left: solid 5px #c91414;
+}
+/*# sourceMappingURL=toasts.css.map */
