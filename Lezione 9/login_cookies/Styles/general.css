@@ -78,3 +78,9 @@ button {
 .content {
     padding-top: 70px;
 }
+.miobutton{
+  background-color:blue;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 12px;
+}

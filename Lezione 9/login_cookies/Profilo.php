@@ -36,6 +36,9 @@ if(!$_SESSION["login"]->logged){
             if(file_exists($file_immagine) 
                 && (is_file($file_immagine))
             ){
+                //Risolvo il problema cache sull'immagine
+                //$file_immagine .= "?".rand(9999);
+
                 // Se esiste visualizzarlo
                 echo "<img src='$file_immagine' style='max-width:300px;' />";
             }else{
@@ -65,7 +68,7 @@ if(!$_SESSION["login"]->logged){
         ?>
         </p>
         <p>
-            <a href="Profilo_edit.php">modifica profilo</a>
+            <button onclick="location.href='Profilo_edit.php';" class="miobutton">modifica profilo</button>
         </p>
 
     </div>

@@ -19,8 +19,8 @@ $target_file = $file_immagine; // public/uploads/profilo.jpg
 
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-//SE HO INVIATO IL FORM, CONTROLLO I DATI E FACCIO L'UPLOAD E TUTTO IL RESTO
-if(isset($_POST["submit"])) {
+//SE HO INVIATO IL FORM E IL FORM CONTIENE UN FILE DA TRASMETTERE, CONTROLLO I DATI E FACCIO L'UPLOAD E TUTTO IL RESTO
+if( isset($_POST["submit"]) && ($_FILES["fotoprofilo"]["name"]!="") ) {
     // Controllo che il file sia veramente un’immagine
     $check = getimagesize($_FILES["fotoprofilo"]["tmp_name"]);
     if($check !== false) {
@@ -37,7 +37,7 @@ if(isset($_POST["submit"])) {
         echo "Spiacente, il file non è stato caricato.";
     } else {        
         // Se invece è tutto ok, tento di caricare il file
-        if ( move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) ) {
+        if ( move_uploaded_file($_FILES["fotoprofilo"]["tmp_name"], $target_file) ) {
                 header("location:Profilo.php");
                 exit;
         } else {
@@ -50,6 +50,12 @@ if(isset($_POST["submit"])) {
 
 }
 
+
+//SE HO INVIATO IL FORM 
+//(QUI CONTROLLO SOLO AREA TESTO, ANCHE SE NON HO AGGIUNTO NESSUN FILE)
+if( isset($_POST["submit"] ){
+    
+}
 
 
 ?><!DOCTYPE html>
@@ -79,8 +85,20 @@ if(isset($_POST["submit"])) {
             <input type="file" name="fotoprofilo">
             <br />
             <br />
+
+
+            <?php
+            //Recupero la descrizione corrente e la inserisco nella textarea
+
+            if(file_exists($file_descrizione) 
+                && (is_file($file_descrizione))
+            ){
+                $desc = file_get_contents($file_descrizione);
+            }
+            ?>
+
             <label for="descrizione">Descrizione: </label>
-            <textarea name="descrizione" rows="5" cols="48">
+            <textarea name="descrizione" rows="5" cols="48"><?=$desc?>
             </textarea>
             <br />
             <br />

@@ -52,8 +52,9 @@ if(($login_success)||($login_cookies)){
     if( (isset($_POST["ricordami"])) && 
         ($_POST["ricordami"]=="1") ){
 
-        setcookie("username", $nome, time() + 2592000 );
-        setcookie("access", $access, time() + 2592000 );      
+        //Se non specifico l'ultimo parametro, il cookie viene assegnato alla directory corrente, per sicurezza conviene specificare la root del dominio stesso col parametro "/" che nel nostro caso corrisponde a "localhost" 
+        setcookie("username", $nome, time() + 2592000, "/" );
+        setcookie("access", $access, time() + 2592000, "/" );      
     }
 
     save_login($login);
