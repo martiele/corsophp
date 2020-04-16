@@ -1,0 +1,55 @@
+$primary: #3f48cc;
+$secondary: #7e7d88;
+$light: rgb(207, 209, 216);
+$dark: #1b1b1e;
+$info: #3bc8e0;
+$success: #2bbd15;
+$warning: #cfc619;
+$danger: #c91414;
+
+$d_radius: 5px;
+
+@mixin shadow($h, $v){
+    -webkit-box-shadow: $h $v 20px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: $h $v 20px 1px rgba(0,0,0,0.3);
+    box-shadow: $h $v 20px 1px rgba(0,0,0,0.3);
+
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+    zoom: 1;
+}
+
+@mixin disabled {
+    cursor: not-allowed;
+    background-color: lightgray;
+    pointer-events: none;
+}
+
+@mixin button {
+    padding: .7em 1em;
+    margin: 4px 2px;
+    border-radius: $d-radius;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    @include transition(.3s);
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.disabled {
+        @include disabled;
+
+        &:hover {
+            @include disabled;
+        }
+    }
+}
+
+@mixin transition($time, $element: all) {
+    -webkit-transition: $element $time ease;
+    -moz-transition: $element $time ease;
+    transition: $element $time ease;
+}

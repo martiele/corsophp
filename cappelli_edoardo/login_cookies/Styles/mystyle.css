@@ -1,0 +1,84 @@
+
+body{
+	font-size: 1em;
+	font-family: Helvetica;
+	background-color: #FEFEFE;
+}
+
+.content{
+	margin: 20px auto;
+	width: 90%;
+	max-width: 800px;
+}
+
+h3{
+	text-align: center;
+	color: red;
+	text-transform: uppercase;
+	font-size: 2em;
+}
+
+fieldset {
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px #666;
+}
+
+textarea{
+	width:99%;
+}
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  background-color: #3256d8;
+  color: white;
+  padding: 6px 14px;
+  cursor: pointer;
+
+}
+
+
+

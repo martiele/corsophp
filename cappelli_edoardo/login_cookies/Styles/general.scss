@@ -1,0 +1,77 @@
+@import "resources.scss";
+
+body{
+    color: $dark !important;
+    background-color: $light !important;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &.dark-mode{
+        color: $light !important;
+        background-color: $dark !important;
+
+        & a{
+            color: $light !important;
+        }
+
+        input{
+            background-color: $dark !important;
+            color: $light !important;
+        }
+
+        & nav{
+            &.nav-top{
+                & .user-options{
+                    background-color: $secondary !important;
+                    & ul,ol{
+                        & li:hover{
+                            background-color: $dark !important;
+                        }
+                    } 
+                }
+            }
+        }
+    }
+}
+
+a{
+    text-decoration: none !important;
+    color: $dark !important;
+    &.disabled {
+        pointer-events: none !important;
+        cursor: default !important;
+    }
+}
+
+input{
+    border: solid 1px $secondary;
+    border-radius: $d_radius;
+    padding: .3em .5em;
+    background-color: $light;
+    color: $dark;
+    &:focus{
+        @include shadow(0, 0);
+    }
+}
+
+input,button:focus{
+    outline: 0;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.float{
+    &-right{
+        float: right;
+    }
+    &-left{
+        float: left;
+    }
+}
+
+.main-content{
+    margin: 60px 10rem;
+}

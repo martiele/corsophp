@@ -1,0 +1,98 @@
+nav {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+}
+
+nav.nav-top {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #1b1b1e;
+  font-size: 1.4rem;
+  -webkit-box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  zoom: 1;
+}
+
+nav.nav-top .nav-logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+nav.nav-top .nav-item, nav.nav-top .user-options ul li, nav.nav-top .user-options ol li {
+  display: block !important;
+  cursor: pointer !important;
+  padding: 0 1rem !important;
+  line-height: 48px !important;
+  text-align: center !important;
+  color: #cfd1d8 !important;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+nav.nav-top .nav-item.active, nav.nav-top .user-options ul li.active, nav.nav-top .user-options ol li.active {
+  background-color: #3f48cc !important;
+}
+
+nav.nav-top .nav-item:hover, nav.nav-top .user-options ul li:hover, nav.nav-top .user-options ol li:hover {
+  background-color: #7e7d88 !important;
+  color: #1b1b1e !important;
+}
+
+nav.nav-top .nav-user {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  float: right;
+  text-align: center;
+  margin: 5px;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #1b1b1e;
+  background-color: #cfd1d8;
+}
+
+nav.nav-top .user-options {
+  position: absolute;
+  top: 58px;
+  right: 10px;
+  background-color: #cfd1d8;
+  -webkit-box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  zoom: 1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: .5rem;
+  opacity: 1;
+  overflow: hidden;
+  min-width: 100px;
+}
+
+nav.nav-top .user-options.hide {
+  opacity: 0;
+}
+
+nav.nav-top .user-options ul, nav.nav-top .user-options ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav.nav-top .user-options ul li, nav.nav-top .user-options ol li {
+  color: #1b1b1e;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=navbar.css.map */
