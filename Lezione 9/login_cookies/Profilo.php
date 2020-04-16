@@ -36,8 +36,9 @@ if(!$_SESSION["login"]->logged){
             if(file_exists($file_immagine) 
                 && (is_file($file_immagine))
             ){
+
                 //Risolvo il problema cache sull'immagine
-                //$file_immagine .= "?".rand(9999);
+                $file_immagine .= "?".rand(0, 9999);
 
                 // Se esiste visualizzarlo
                 echo "<img src='$file_immagine' style='max-width:300px;' />";

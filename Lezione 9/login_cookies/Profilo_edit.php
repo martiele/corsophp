@@ -17,10 +17,10 @@ $target_file = $target_dir . basename(
 );
 $target_file = $file_immagine; // public/uploads/profilo.jpg
 
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 //SE HO INVIATO IL FORM E IL FORM CONTIENE UN FILE DA TRASMETTERE, CONTROLLO I DATI E FACCIO L'UPLOAD E TUTTO IL RESTO
 if( isset($_POST["submit"]) && ($_FILES["fotoprofilo"]["name"]!="") ) {
+
     // Controllo che il file sia veramente un’immagine
     $check = getimagesize($_FILES["fotoprofilo"]["tmp_name"]);
     if($check !== false) {
@@ -31,7 +31,29 @@ if( isset($_POST["submit"]) && ($_FILES["fotoprofilo"]["name"]!="") ) {
         $uploadOk = 0;
     }
 
-    //altri controlli sul file...
+    //Se non voglio sovrascrivere il file, controllo che non esista già
+    /*
+    if (file_exists($target_file)) {
+        echo "Spiacente, il file esiste già.";
+        $uploadOk = 0;
+    }
+    */
+
+    if ($_FILES["fileToUpload"]["size"] > 500000) { //espresso in byte
+        echo "Spiacente, il file è troppo grande.";
+        $uploadOk = 0;
+    }
+
+    //Controllo il tipo di file
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    if($imageFileType != "jpg") {
+        echo "Spiacente! Solo JPG sono accettati!";
+        $uploadOk = 0;
+    }
+
+
+
+
 
     if ($uploadOk == 0) {   // Controllo se $uploadOk è uguale a 0 comunico l’errore
         echo "Spiacente, il file non è stato caricato.";
@@ -57,6 +79,15 @@ if( isset($_POST["submit"]) ){
 
     //QUI DOVETE SALVARE IL TESTO NEL FILE descrizione.txt
     //SOVRASCRIVENDO IL PRECEDENTE
+    if( trim($_POST["descrizione"]) != ""){
+        file_put_contents($file_descrizione, $_POST["descrizione"]);
+    }
+
+
+
+    header("location:Profilo.php");
+    exit;
+    
 
 }
 
