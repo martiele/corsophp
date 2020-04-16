@@ -53,8 +53,11 @@ if( isset($_POST["submit"]) && ($_FILES["fotoprofilo"]["name"]!="") ) {
 
 //SE HO INVIATO IL FORM 
 //(QUI CONTROLLO SOLO AREA TESTO, ANCHE SE NON HO AGGIUNTO NESSUN FILE)
-if( isset($_POST["submit"] ){
-    
+if( isset($_POST["submit"]) ){
+
+    //QUI DOVETE SALVARE IL TESTO NEL FILE descrizione.txt
+    //SOVRASCRIVENDO IL PRECEDENTE
+
 }
 
 
