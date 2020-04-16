@@ -1,0 +1,36 @@
+@import "resources.scss";
+
+$log_height: 450px;
+
+.log-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin-top: -$log_height / 2;
+
+    &:hover .log-left{
+        background-size: 100%;
+    }
+
+    & .log-left{
+        display: block;
+        flex-grow: 1;
+        background-image: linear-gradient(to right, transparent 50%, $secondary);
+        background-size: 50%;
+        background-position: 100% 0%;
+        background-repeat: no-repeat;
+        width: 50%;
+        border-radius: $d_radius;
+        @include transition(.5s, background-size);
+    }
+
+    & .log-right{
+        display: block;
+        flex-grow: 1;
+        width: 50%;
+        padding: 0 2rem;
+    }
+}
