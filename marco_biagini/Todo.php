@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sito Web Meraviglioso</title>
-
-    <?php include("Styles/MyStyle.php"); ?>
-    <?php include("Styles/Bootstrap4.php"); ?>
-
-</head>
 
 <?php
 include("Scripts/PHP/SessionManager.php"); 
@@ -35,6 +22,20 @@ $data = $conn->prepare($sql);
 $data->execute();
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sito Web Meraviglioso</title>
+
+    <?php include("Styles/MyStyle.php"); ?>
+    <?php include("Styles/Bootstrap4.php"); ?>
+
+</head>
 
 <body>
     <?php include("Menu.php"); ?>

@@ -14,6 +14,7 @@
 
 <?php
 include("Scripts/PHP/SessionManager.php"); 
+require_once("Scripts/PHP/Services.php");
 
 $login = new login("", false);
 
@@ -81,6 +82,8 @@ if($login_success){
             </form>
         </div>
     </div>
+
+    <?php include("Scripts/PHP/Notification.php"); ?>
 
     <script type="text/javascript">
     $(document).ready(function() {
