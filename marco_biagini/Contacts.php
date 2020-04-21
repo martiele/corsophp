@@ -68,7 +68,6 @@ if(!$_SESSION["login"]->logged){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
-    <link type="text/css" rel="stylesheet" href="Styles/Bundle.css" />
 
     <?php include("Styles/MyStyle.php"); ?>
     <?php include("Styles/Bootstrap4.php"); ?>
