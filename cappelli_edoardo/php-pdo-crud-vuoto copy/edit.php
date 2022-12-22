@@ -40,21 +40,22 @@ if(isset($_GET) &&isset($_GET["id"])&& $_GET["id"]>0){
   $id_post = (int)$_GET["id"];
   echo "l'ho letto";
 
-$sql ="SELECT * FROM post WHERE id=?";
-$result = $conn->prepare($sql);
-$result->execute($id_post);
+  $sql ="SELECT * FROM post WHERE id=?";
+  $result = $conn->prepare($sql);
+  $result->execute($id_post);
 
 
-if ($result->rowCount() > 0) {
-    // se voglio “ciclare” tutti i risultati posso farlo così:
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-}else{
-  header("location:index.php");
-exit();
+  if ($result->rowCount() > 0) {
+      // se voglio “ciclare” tutti i risultati posso farlo così:
+      $row = $result->fetch(PDO::FETCH_ASSOC);
+  }else{
+    header("location:index.php");
+  exit();
+  }
 }
 
-
 ?>
+<html>
 <head>
 <title>PHP PDO CRUD - Modifica Record</title>
 <style>
@@ -79,20 +80,20 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
   
   <div class="demo-form-row">
 	  <label>Title: </label><br>
-	  <input type="text" name="post_title" class="demo-form-field" value="<?=row["post_title"]?>" required  />
+	  <input type="text" name="post_title" class="demo-form-field" value="<?=$row["post_title"]?>" required  />
   </div>
   <div class="demo-form-row">
 	  <label>Description: </label><br>
-	  <textarea name="description" class="demo-form-field" rows="5" required ><?=row["description"]?></textarea>
+	  <textarea name="description" class="demo-form-field" rows="5" required ><?=$row["description"]?></textarea>
   </div>
   <div class="demo-form-row">
 	  <label>Date: </label><br>
-	  <input type="date" name="post_at" class="demo-form-field" value="<?=row["post_at"]?>" required />
+	  <input type="date" name="post_at" class="demo-form-field" value="<?=$row["post_at"]?>" required />
   </div>
   <div class="demo-form-row">
-	  <input name="save_record" type="submit" value="<?=row["save_record"]?>" class="demo-form-submit">
+	  <input name="save_record" type="submit" value="<?=$row["save_record"]?>" class="demo-form-submit">
   </div>
-  </form>
+</form>
 </div>
 </body>
 </html>

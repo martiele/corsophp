@@ -14,7 +14,7 @@ echo "Sesso: $var_sex <br />";
 //LA VARIABILE DEVE ESSERE UNA VARIABILE "SEMPLICE"
 
 echo "Messaggio: $var_msg <br />";
-echo "Interessi: $elenco_interessi"
+echo "Interessi: $elenco_interessi";
 
 $destinatario = "";
 

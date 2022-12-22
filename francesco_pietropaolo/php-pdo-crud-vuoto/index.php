@@ -29,7 +29,7 @@ body{width:100%;font-family:arial;letter-spacing:1px;line-height:20px;}
   </thead>
   <tbody id="table-body">
 
-<?php/*
+<?php /*
   //prima devo aver aperto la connessione al db                                        TABELLA POSTS
   $sql = "SELECT * FROM posts ORDER BY post_at DESC, id DESC";
   $result = $conn->prepare($sql);
