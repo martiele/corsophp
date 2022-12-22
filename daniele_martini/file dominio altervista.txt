@@ -20,3 +20,5 @@ Hostname/server: localhost
 Username: corsophp2020
 Password: Facoltativa (puoi lasciare il campo vuoto)
 Database: my_corsophp2020
+
+OK
